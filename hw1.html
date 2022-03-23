@@ -173,10 +173,23 @@
 
         let longStr = "Computer engineering has been rapidly changed than any other academic disciplines; these changes are immediately reflected in the industrial field.";
         // 위 변수를 이용하여 quest9()함수를 실행하세요
-
+ 
         function quest9(str){
-             
-                        
+            chr_dict = {};
+            regExp = /[.,;]/gi;
+            str = str.replace(regExp,"").split(' ');
+            str = str.join('');
+            
+            for (c of str) {
+                if (Object.keys(chr_dict).indexOf(c) > 0) {
+                   chr_dict[c] += 1;
+                } else {
+                    chr_dict[c] = 1;
+                }
+            }
+            for (key in chr_dict) {
+                console.log(`${key}:${chr_dict[key]}`);
+            }
         }
 
     </script>
